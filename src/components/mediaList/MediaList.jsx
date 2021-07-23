@@ -1,23 +1,20 @@
 import React from 'react';
 import './MediaList.scss'
+import { Link } from "react-router-dom";
+
+
 const MediaList = (props) => {
-    const {data, click} = props;
-
     return (
-        data && data.map(video => {
-            const {id, image, title, channel} = video;
-
-            return (
-                <article className="suggestions__article" key={id} onClick={() => click(video)}>
-                    <img className="suggestions--video" src={image} alt="" style={{ width: '60px', height: '50px' }} />
-                    <div className="suggestions__info">
-                        <h3 className="suggestions--name" >{title}</h3>
-                        <h4 className="suggestions--author" >{channel}</h4>
-                    </div>
-                </article>
-            );
-        })
+        props.data && props.data.map(video => (
+            <Link to={`/home/${video.id}`} className="suggestions__box" key={video.id} >
+                <img className="suggestions__box__video" src={video.image} alt="Video suggest" />
+                <div className="suggestions__box__info">
+                    <p className="suggestions__box__info__name" >{video.title}</p>
+                    <p className="suggestions__box__info__author" >{video.channel}</p>
+                </div>
+            </Link>
+        ))
     );
 };
-export default MediaList;
 
+export default MediaList;

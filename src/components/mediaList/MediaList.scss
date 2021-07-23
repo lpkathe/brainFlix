@@ -1,41 +1,67 @@
-@import "../../partials/_typography.scss";
-@import "../../partials/_variables.scss";
-@import "../../partials/_mixins.scss";
-@import "../../partials/_global.scss";
+@import '../../partials/_typography';
+@import '../../partials/_variables';
+@import '../../partials/_mixins';
+
+
+a {
+  color: $Paragraph-text;
+  text-decoration: none;
+}
 
 .suggestions {
-  &__article {
-    margin: 2.4rem 0;
+
+  &__box {
+    margin-bottom: 24px;
     display: flex;
-  }
-
-  &--video {
-    margin-right: 1.6rem;
-    min-height: 7rem;
-    min-width: 12rem;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  &__info {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &--name {
-    margin: 0;
-    display: inline;
+    
+    &__video {
+      margin-right: 16px;
+      height: 70px;
+      min-width: 120px;
+      width: 120px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    &__info {
+      height: 70px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: scroll;
+      
+      &__name {
+        margin: 0;
+        font-family: "demi";
+        @include subheader-mobile;
+        display: inline;
+        cursor: pointer;
+      }
+      
+      &__author {
+        margin: 5px 0 0 0;
+        font-family: "regular";
+        @include paragraph-mobile;
+      }
+    }
   }
 }
 
-@include tablet-screen-size {
-  .suggestions__article {
-    width: 52%;
-  }
+@media (min-width: 768px) {
+
+  .suggestions {
+
+    &__box {
+      width: 42.5%;
+    }
+  }  
 }
 
-@include desktop-screen-size {
-  .suggestions__article {
-    width: 99%;
-  }
+@media (min-width: 768px) {
+
+  .suggestions {
+
+    &__box {
+      width: auto;
+    }
+  }  
 }

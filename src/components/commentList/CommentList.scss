@@ -1,51 +1,72 @@
-@import "../../partials/_typography.scss";
-@import "../../partials/_variables.scss";
-@import "../../partials/_mixins.scss";
-@import "../../partials/_global.scss";
+@import'../../partials/_typography';
+@import'../../partials/_variables';
+@import'../../partials/_mixins';
 
 .comment {
-  padding: $padding-vertical-mobile;
+  padding: 5% 0;
   display: flex;
-  border-bottom: $divider-line-bottom;
+  @include borderBox;
+  border-right: none;
+  border-left: none;
 
-  &--pic {
-    margin-right: 2%;
-    width: 30%;
-    background-color: $avatar-background;
-    @include avatar;
+  &__pic {
+    margin-right: 16px;
+    height: 45px;
+    width: 45px;
+    background-color: #cecece;
+    border-radius: 50%;
   }
 
-  &--info {
-    width: 70%;
-  }
-
-  &--firstLine {
-    @include center;
-    justify-content: space-between;
-  }
-
-  &--name,
-  .comment--date {
-    margin: 0;
-  }
-
-  &--text {
-    font-size: 1.2rem; // It is modified to give similarity to the mockup
+  &__info {
+    width: 85%;
+    
+    &__firtsLine {
+      display: flex;
+      justify-content: space-between;
+      
+      &__name {
+        margin: 0;
+        font-family: "demi";
+        @include subheader-mobile;
+      }
+      
+      &__date {
+        margin: 0;
+        font-family: "regular";
+        @include labels-mobile;
+      }
+    }
+    
+    &__text {
+      margin: 1% 0;
+      @include paragraph-mobile;
+      font-family: "regular";
+    }
   }
 }
 
-@include tablet-screen-size {
+@media (min-width: 768px) {
+  
   .comment {
-    &--name {
-      margin-right: 3%;
-    }
+    padding: 2% 0;
 
-    &--firstLine {
-      justify-content: flex-start;
-    }
+    &__info {
+      
+      &__firtsLine {
+        justify-content: flex-start;
 
-    &--info {
-      width: 80%;
+        &__name {
+          margin: 0 3% 0 0;
+        }
+      }
     }
   }
 }
+
+@media (min-width: 1440px) {
+
+  .comment {
+    padding: 4% 32px 4% 0;
+  }
+}
+  

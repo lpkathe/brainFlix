@@ -1,61 +1,26 @@
-@import "./_typography.scss";
-@import "./_variables.scss";
+@import '_typography';
+@import '_variables';
 
-// others fonts styles
-@mixin hero-header {
-  // extra class for h1 tag in hero section
-  font-size: 6rem;
-  line-height: 6.8rem;
-}
-
-@mixin list-contact-information {
-  // extra class for h4 tag
-  font-size: 1.4rem;
-  line-height: 2rem;
-}
-
-// elements styles
-@mixin center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin button-style {
-  height: 4.8rem;
-  color: $text-color-button;
-  font-weight: 900;
-  background-color: $button-background;
+@mixin buttonStyle {
+  font-family: "demi";
+  color: white;
+  background-color: $Primary-Textlink;
+  border-radius: 4px;
   border: none;
-  border-radius: 4px;
-  @include center;
-}
+  cursor: pointer;
 
-@mixin avatar {
-  height: 4.8rem;
-  width: 4.8rem;
-  border-radius: 50%;
-}
-
-@mixin form {
-  background-color: $text-field-background;
-  border: 1px solid $text-field-border-color;
-  border-radius: 4px;
-
-  &:active {
-    border-color: $form-field-border-active;
+  &:hover {
+    background-color: $Button-Hover;
   }
 }
 
-// media query
-@mixin tablet-screen-size {
-  @media (min-width: 768px) {
-    @content;
-  }
+@mixin borderBox {
+  border-color: $Text-border;
+  border-style: solid;
+  border-width: 1px;
 }
 
-@mixin desktop-screen-size {
-  @media (min-width: 1440px) {
-    @content;
-  }
+@mixin formBorder {
+  border-radius: 6px;
+  border: 1px solid $Text-border;
 }

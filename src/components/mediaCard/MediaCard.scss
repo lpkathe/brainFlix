@@ -1,76 +1,122 @@
-@import "../../partials/_typography.scss";
-@import "../../partials/_variables.scss";
-@import "../../partials/_mixins.scss";
-@import "../../partials/_global.scss";
+@import'../../partials/_typography';
+@import'../../partials/_mixins';
 
-.current-video {
-  &--description {
-    border-bottom: $divider-line-bottom;
+.video {
+
+  &__name {
+    margin-bottom: 0;
+    font-family: "bold";
+    @include header-mobile;
   }
 
-  &--name {
-    margin: 1.2rem 0 1.6rem 0;
+  &__contents {
+    border-bottom: 1px solid $Text-border;
   }
 
   &__info {
     display: flex;
-    align-items: center;
+    align-items: baseline;
 
-    &--author,
-    .current-video__info--date {
-      margin: 0 0.8rem 0 0;
+    &__author {
+      font-family: "demi";
+      margin: 16px 8px 32px 0;
+    }
+  
+    &__date {
+      font-family: "regular";
+      color: $Text-label;
     }
   }
 
-  &__social-info,
-  .current-video__social-info--likes,
-  .current-video__social-info--views {
+  &__socialInfo {
+    padding-bottom: 24px;
+    width: 70%;
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
   }
 
-  &__social-info {
-    margin: 3.2rem 0 2.4rem 0;
-
-    & img {
-      margin-right: 0.8rem;
-    }
-
-    &--likes,
-    .current-video__social-info--views {
-      margin-right: 2.4rem;
-    }
+  &__icon {
+    margin-right: 8px;
   }
 
-  &--text {
-    margin: 2.4rem 0 4rem 0;
-    font-size: 1.203rem; // It is modified to give similarity to the mockup
+  &__views {
+    @include paragraph-mobile;
+    font-family: "regular";
+    display: flex;
+  }
+  
+  &__likes {
+    @include paragraph-comments-desktop;
+    font-family: "regular";
+    display: flex;
+  }
+
+  &__text {
+    margin: 24px 0 40px 0;
+    font-family: "regular";
+    @include paragraph-mobile;
   }
 }
 
-@include tablet-screen-size {
-  .current-video {
-    &--description {
-      border-bottom: none;
+@media (min-width: 768px) {
+  
+  .video {
+
+    &__name {
+      @include header-h1-desktop;
     }
 
-    &__titles {
+    &__contents {
+      padding: 24px 0;
       display: flex;
       justify-content: space-between;
-      border-bottom: $divider-line-bottom;
     }
 
-    &--text {
-      margin-bottom: 6.4rem;
-      width: 75%;
-      font-size: 1.49rem; // It is modified to give similarity to the mockup
+    &__info {
+      width: 50%;
+
+      &__author {
+        margin: 0 8px 0 0;
+      }
+    }
+
+    &__socialInfo {
+      padding: 0;
+      width: 50%;
+      justify-content: flex-end;
+    }
+
+    &__views p {
+      margin-right: 24px;
+    }
+
+    &__counter {
+      margin: 0;
+    }
+
+    &__views {
+      @include paragraph-comments-desktop;
+    }
+    
+    &__likes {
+      @include paragraph-comments-desktop;
+    }
+  
+    &__text {
+      margin: 40px 0 64px 0;
+      width: 70%;
+      @include paragraph-comments-desktop;
     }
   }
 }
 
-@include desktop-screen-size {
-  .current-video__social-info {
-    margin-right: 3.2rem;
+@media (min-width: 1440px) {
+
+  .video {
+
+    &__contents {
+      padding-right: 32px;
+    }
   }
 }
