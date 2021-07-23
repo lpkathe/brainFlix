@@ -11,12 +11,12 @@ class CommentForm extends React.Component {
     };
   } 
 
-  handleChange = (e) => {
+  handleOnChange = (e) => {
     this.setState({ value: e.target.value})
   }
 
-  handleClick = () => {
-    this.props.handleClick(this.state.value);
+  handleOnClick = () => {
+    this.props.handleOnClick(this.state.value);
     this.setState({ value: '' });
   }
 
@@ -32,10 +32,10 @@ class CommentForm extends React.Component {
               type="text" 
               placeholder="Write comment here"
               value={this.state.value}
-              onChange={this.handleChange} />
+              onChange={this.handleOnChange} />
           </div>
         </div>
-        <button className="CommentForm__button blueButton" onClick={this.handleClick}>COMMENT</button>
+        <button className="CommentForm__button blueButton" onClick={this.handleOnClick}>COMMENT</button>
       </div>
     )
   }

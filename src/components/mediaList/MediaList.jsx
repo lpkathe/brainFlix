@@ -4,16 +4,22 @@ import { Link } from "react-router-dom";
 
 
 const MediaList = (props) => {
+    const { data } = props;
+
     return (
-        props.data && props.data.map(video => (
-            <Link to={`/home/${video.id}`} className="suggestions__box" key={video.id} >
-                <img className="suggestions__box__video" src={video.image} alt="Video suggest" />
-                <div className="suggestions__box__info">
-                    <p className="suggestions__box__info__name" >{video.title}</p>
-                    <p className="suggestions__box__info__author" >{video.channel}</p>
-                </div>
-            </Link>
-        ))
+        data && data.map(video => {
+            const { id, image, title, channel } = video;
+
+            return (
+                <Link to={`/home/${id}`} className="suggestions__box" key={id} >
+                    <img className="suggestions__box__video" src={image} alt="Video suggest" />
+                    <div className="suggestions__box__info">
+                        <p className="suggestions__box__info__name" >{title}</p>
+                        <p className="suggestions__box__info__author" >{channel}</p>
+                    </div>
+                </Link>
+            );
+        })
     );
 };
 

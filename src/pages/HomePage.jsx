@@ -72,7 +72,7 @@ class HomePage extends React.Component {
       }));
     };
 
-    handleClick = (value) => {
+    handleOnClick = (value) => {
         const newComment = {
             name: "Nigel",
             comment: value
@@ -92,7 +92,7 @@ class HomePage extends React.Component {
                     <div className="currentVideo">
                         <MediaCard video={this.state.current} />
                         <div className="quantityComments">{this.state.current.comments.length} Comments</div>
-                        <CommentForm handleClick={this.handleClick} />
+                        <CommentForm handleOnClick={this.handleOnClick} />
                         <div className="comments">
                             {this.state.current.comments.map(comment => (
                                 <CommentList key={comment.id} data={comment} />
